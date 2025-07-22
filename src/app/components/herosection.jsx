@@ -109,7 +109,7 @@ const [topData,settopData]=useState();
       </div>
 
       {/* Main Content Container */}
-      <div className="relative w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12 z-10">
+      <div className="relative w-full max-w-4xl ml-3.5 py-6 sm:py-8 lg:py-8 z-10 ">
         
         {/* Main Layout - Stack on mobile, row on larger screens */}
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 mb-8">
@@ -129,7 +129,7 @@ const [topData,settopData]=useState();
                       <img 
                         src={image.src} 
                         alt={image.alt}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover/slide:scale-105"
+                        className="w-full h-full object-contain transition-transform duration-700 group-hover/slide:scale-105"
                       />
                       
                       {/* Enhanced overlay - Responsive text sizes */}

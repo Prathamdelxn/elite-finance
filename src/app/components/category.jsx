@@ -41,7 +41,7 @@
 //       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(34,197,94,0.15),transparent_60%)]"></div>
 //       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(59,130,246,0.1),transparent_60%)]"></div>
 //       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(168,85,247,0.08),transparent_70%)]"></div>
-      
+
 //       {/* Subtle Grid Pattern */}
 //       <div className="absolute inset-0 opacity-[0.05]">
 //         <div className="absolute inset-0" style={{
@@ -63,14 +63,14 @@
 //             <span className="text-sm font-semibold text-slate-200">Premium Services</span>
 //             <Zap className="w-4 h-4 text-blue-400" />
 //           </div>
-          
+
 //           <h1 className="text-6xl md:text-7xl font-black text-white mb-6 tracking-tight leading-tight">
 //             Elevate Your
 //             <span className="block bg-gradient-to-r from-emerald-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
 //               Experience
 //             </span>
 //           </h1>
-          
+
 //           <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed font-light">
 //             Unlock premium features and personalized services designed to accelerate your journey to success
 //           </p>
@@ -90,7 +90,7 @@
 //               style={{ animationDelay: `${index * 100}ms` }}
 //             >
 //               <span className="relative z-10">{filter}</span>
-              
+
 //               {activeFilter !== filter && (
 //                 <div className="absolute inset-0 bg-gradient-to-r from-slate-700/50 to-slate-600/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 //               )}
@@ -266,7 +266,7 @@
 //       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(34,197,94,0.15),transparent_60%)]"></div>
 //       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(59,130,246,0.1),transparent_60%)]"></div>
 //       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(168,85,247,0.08),transparent_70%)]"></div>
-      
+
 //       {/* Subtle Grid Pattern */}
 //       <div className="absolute inset-0 opacity-[0.05]">
 //         <div className="absolute inset-0" style={{
@@ -288,14 +288,14 @@
 //             <span className="text-sm font-semibold text-slate-200">Premium Services</span>
 //             <Zap className="w-4 h-4 text-blue-400" />
 //           </div>
-          
+
 //           <h1 className="text-6xl md:text-7xl font-black text-white mb-6 tracking-tight leading-tight">
 //             Elevate Your
 //             <span className="block bg-gradient-to-r from-emerald-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
 //               Experience
 //             </span>
 //           </h1>
-          
+
 //           <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed font-light">
 //             Unlock premium features and personalized services designed to accelerate your journey to success
 //           </p>
@@ -315,7 +315,7 @@
 //               style={{ animationDelay: `${index * 100}ms` }}
 //             >
 //               <span className="relative z-10">{filter}</span>
-              
+
 //               {activeFilter !== filter && (
 //                 <div className="absolute inset-0 bg-gradient-to-r from-slate-700/50 to-slate-600/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 //               )}
@@ -598,7 +598,7 @@
 //       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(34,197,94,0.15),transparent_60%)]"></div>
 //       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(59,130,246,0.1),transparent_60%)]"></div>
 //       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(168,85,247,0.08),transparent_70%)]"></div>
-      
+
 //       {/* Subtle Grid Pattern */}
 //       <div className="absolute inset-0 opacity-[0.05]">
 //         <div className="absolute inset-0" style={{
@@ -620,14 +620,14 @@
 //             <span className="text-sm font-semibold text-slate-200">Premium Services</span>
 //             <Zap className="w-4 h-4 text-blue-400" />
 //           </div>
-          
+
 //           <h1 className="text-6xl md:text-7xl font-black text-white mb-6 tracking-tight leading-tight">
 //             Elevate Your
 //             <span className="block bg-gradient-to-r from-emerald-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
 //               Experience
 //             </span>
 //           </h1>
-          
+
 //           <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed font-light">
 //             Unlock premium features and personalized services designed to accelerate your journey to success
 //           </p>
@@ -647,7 +647,7 @@
 //               style={{ animationDelay: `${index * 100}ms` }}
 //             >
 //               <span className="relative z-10">{filter}</span>
-              
+
 //               {activeFilter !== filter && (
 //                 <div className="absolute inset-0 bg-gradient-to-r from-slate-700/50 to-slate-600/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 //               )}
@@ -778,7 +778,7 @@
 //                   <X className="w-5 h-5 text-slate-300" />
 //                 </button>
 //               </div>
-              
+
 //               {submitSuccess ? (
 //                 <div className="text-center py-8">
 //                   <div className="inline-flex items-center justify-center w-16 h-16 bg-emerald-500/20 rounded-full mb-4">
@@ -1082,7 +1082,7 @@ const ServicesSection = () => {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(34,197,94,0.08),transparent_60%)]"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(59,130,246,0.06),transparent_60%)]"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(168,85,247,0.04),transparent_70%)]"></div>
-      
+
       {/* Subtle Grid Pattern */}
       <div className="absolute inset-0 opacity-[0.02]">
         <div className="absolute inset-0" style={{
@@ -1104,14 +1104,14 @@ const ServicesSection = () => {
             <span className="text-sm font-semibold text-slate-700">Premium Services</span>
             <Zap className="w-4 h-4 text-blue-500" />
           </div>
-          
+
           <h1 className="text-6xl md:text-7xl font-black text-slate-900 mb-6 tracking-tight leading-tight">
             Elevate Your
             <span className="block bg-gradient-to-r from-emerald-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">
               Experience
             </span>
           </h1>
-          
+
           <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-light">
             Unlock premium features and personalized services designed to accelerate your journey to success
           </p>
@@ -1123,15 +1123,14 @@ const ServicesSection = () => {
             <button
               key={filter}
               onClick={() => setActiveFilter(filter)}
-              className={`relative px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-[1.02] overflow-hidden group ${
-                activeFilter === filter
+              className={`relative px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-[1.02] overflow-hidden group ${activeFilter === filter
                   ? 'bg-gradient-to-r from-emerald-500 to-emerald-600 text-white shadow-lg shadow-emerald-500/25'
                   : 'bg-white/80 text-slate-700 hover:text-slate-900 shadow-sm hover:shadow-md border border-slate-200/50 hover:border-slate-300/50 hover:bg-white/90'
-              }`}
+                }`}
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <span className="relative z-10">{filter}</span>
-              
+
               {activeFilter !== filter && (
                 <div className="absolute inset-0 bg-gradient-to-r from-slate-50/50 to-slate-100/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               )}
@@ -1159,21 +1158,20 @@ const ServicesSection = () => {
                 return (
                   <div
                     key={service._id || service.id}
-                    className="group relative bg-white rounded-3xl border border-gray-200 hover:border-gray-300 transition-all duration-300 hover:shadow-lg overflow-hidden"
-                    style={{ 
+                    className="group relative flex flex-col bg-white rounded-3xl border border-gray-200 hover:border-gray-300 transition-all duration-300 hover:shadow-lg overflow-hidden min-h-[400px]" // Added flex-col and min-height
+                    style={{
                       animationDelay: `${index * 150}ms`,
                       animation: 'fadeInUp 0.6s ease-out forwards'
                     }}
                   >
                     {/* Card Content */}
-                    <div className="p-6">
+                    <div className="p-6 flex-1 flex flex-col"> {/* Added flex-1 and flex-col */}
                       {/* Badge */}
                       {service.badge && (
-                        <div className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium mb-4 ${
-                          service.badge === 'Best Deal' ? 'bg-purple-100 text-purple-700' :
-                          service.badge === 'Popular' ? 'bg-blue-100 text-blue-700' :
-                          'bg-emerald-100 text-emerald-700'
-                        }`}>
+                        <div className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium mb-4 ${service.badge === 'Best Deal' ? 'bg-purple-100 text-purple-700' :
+                            service.badge === 'Popular' ? 'bg-blue-100 text-blue-700' :
+                              'bg-emerald-100 text-emerald-700'
+                          }`}>
                           {service.badge}
                         </div>
                       )}
@@ -1205,29 +1203,31 @@ const ServicesSection = () => {
                         </div>
                       </div>
 
-                      {/* Bottom Section with Icon and Price */}
-                      <div className="flex items-center justify-between bg-gray-50 rounded-2xl p-4">
-                        <div className="flex items-center gap-3">
-                          <div className="p-2 bg-white rounded-lg shadow-sm">
-                            <Icon className="w-6 h-6 text-gray-600" />
-                          </div>
-                          <div>
-                            <div className="text-sm font-semibold text-gray-900">
-                              {service.category}
+                      {/* Bottom Section with Icon and Price - Pushed to bottom */}
+                      <div className="mt-auto"> {/* Added mt-auto to push to bottom */}
+                        <div className="flex items-center justify-between bg-gray-50 rounded-2xl p-2 max-w-70">
+                          <div className="flex items-center gap-3">
+                            <div className="p-2 bg-white rounded-lg shadow-sm">
+                              <Icon className="w-6 h-6 text-gray-600" />
                             </div>
-                            <div className="text-xs text-gray-500">
-                              {service.category === 'Package' ? '1 products' : 'Service'}
+                            <div>
+                              <div className="text-sm font-semibold text-gray-900">
+                                {service.category}
+                              </div>
+                              <div className="text-xs text-gray-500">
+                                {service.category === 'Package' ? '1 products' : 'Service'}
+                              </div>
                             </div>
                           </div>
+
+                          <button
+                            onClick={() => handleConnectClick(service)}
+                            className="flex items-center gap-2 bg-white border border-gray-200 hover:border-gray-300 px-4 py-2 rounded-full text-sm font-medium text-gray-700 hover:text-gray-900 transition-all duration-200 hover:shadow-sm"
+                          >
+                            <span>Connect us</span>
+                            <ArrowRight className="w-4 h-4" />
+                          </button>
                         </div>
-                        
-                        <button 
-                          onClick={() => handleConnectClick(service)}
-                          className="flex items-center gap-2 bg-white border border-gray-200 hover:border-gray-300 px-4 py-2 rounded-full text-sm font-medium text-gray-700 hover:text-gray-900 transition-all duration-200 hover:shadow-sm"
-                        >
-                          <span>Connect us</span>
-                          <ArrowRight className="w-4 h-4" />
-                        </button>
                       </div>
                     </div>
                   </div>
@@ -1260,14 +1260,14 @@ const ServicesSection = () => {
             <div className="relative z-10 p-6 md:p-8">
               <div className="flex justify-between items-center mb-6">
                 <h3 className="text-2xl font-bold text-slate-900">Service Enquiry</h3>
-                <button 
+                <button
                   onClick={() => setShowForm(false)}
                   className="p-2 rounded-full hover:bg-slate-100 transition-colors duration-200"
                 >
                   <X className="w-5 h-5 text-slate-600" />
                 </button>
               </div>
-              
+
               {submitSuccess ? (
                 <div className="text-center py-8">
                   <div className="inline-flex items-center justify-center w-16 h-16 bg-emerald-50 rounded-full mb-4">
