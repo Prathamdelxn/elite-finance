@@ -7,10 +7,10 @@ import { useRouter } from 'next/navigation';
 export default function HeroSection() {
   // Static advertisement images
   const staticAdImages = [
-    { 
-      id: 1, 
-      src: 'https://via.placeholder.com/600x400/FF6B6B/FFFFFF?text=Personal+Loans+%7C+Quick+Approval',
-    },
+    // { 
+    //   id: 1, 
+    //   src: 'https://via.placeholder.com/600x400/FF6B6B/FFFFFF?text=Personal+Loans+%7C+Quick+Approval',
+    // },
   ];
 
   // Bank icons data
@@ -189,7 +189,7 @@ const [topData,settopData]=useState();
                   </div>
                   <div className="hidden sm:block">
                     <a href={topData?.sitelink} className="bg-white/20 cursor-pointer backdrop-blur-sm px-4 py-2 rounded-full">
-                      <span className="text-sm font-bold">For more Enquiry</span>
+                      <span className="text-sm font-bold">Click Here</span>
                     </a>
                   </div>
                 </div>
