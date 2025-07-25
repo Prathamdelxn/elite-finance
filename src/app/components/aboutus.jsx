@@ -279,7 +279,7 @@ const AboutUs = () => {
         <div className="text-center mb-20">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-400/10 to-teal-400/10 border border-emerald-400/20 rounded-full px-6 py-2 mb-8">
             <Sparkles className="w-4 h-4 text-emerald-500" />
-            <span className="text-emerald-600 text-sm font-medium">About BTech Loan_Wala</span>
+            <span className="text-emerald-600 text-sm font-medium">About Elite Financial Services</span>
           </div>
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
             <span className="text-gray-900">Transforming Your</span><br />
@@ -316,7 +316,7 @@ const AboutUs = () => {
                 </div>
                 <div className="space-y-6 text-gray-700 leading-relaxed">
                   <p className="text-lg">
-                    I am the <span className="font-semibold text-emerald-600">Founder and CEO of BTech Loan_Wala</span>,
+                    I am the <span className="font-semibold text-emerald-600">Founder and CEO of Elite Financial Services </span>,
                     a pioneering financial consultancy firm revolutionizing the financial landscape in Pune, India.
                   </p>
                   <div className="bg-gradient-to-r from-emerald-50 to-teal-50 border-l-4 border-emerald-400 p-6 rounded-r-2xl">

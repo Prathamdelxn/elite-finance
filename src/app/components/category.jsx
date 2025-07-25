@@ -1093,17 +1093,20 @@ const ServicesSection = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 py-20 relative z-10">
-        {/* Light Theme Header */}
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-3 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full border border-slate-200/50 mb-8 hover:bg-white/90 transition-all duration-300 shadow-lg shadow-slate-200/50">
-            <div className="flex items-center gap-1">
-              <Star className="w-4 h-4 text-emerald-500 fill-emerald-500" />
-              <Star className="w-3 h-3 text-emerald-400 fill-emerald-400" />
-              <Star className="w-2 h-2 text-emerald-300 fill-emerald-300" />
-            </div>
-            <span className="text-sm font-semibold text-slate-700">Premium Services</span>
-            <Zap className="w-4 h-4 text-blue-500" />
+       {/* Light Theme Header */}
+       <div className="flex justify-center">
+         <div className="inline-flex items-center gap-3 mx-auto bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full border border-slate-200/50 mb-8 hover:bg-white/90 transition-all duration-300 shadow-lg shadow-slate-200/50">
+          <div className="flex items-center gap-1">
+            <Star className="w-4 h-4 text-emerald-500 fill-emerald-500" />
+            <Star className="w-3 h-3 text-emerald-400 fill-emerald-400" />
+            <Star className="w-2 h-2 text-emerald-300 fill-emerald-300" />
           </div>
+       <span className="text-sm font-semibold text-slate-700">Premium Services</span>
+       <Zap className="w-4 h-4 text-blue-500" />
+      </div>
+     </div>
+        {/* <div className="text-center mb-20">
+          
           
           <h1 className="text-6xl md:text-7xl font-black text-slate-900 mb-6 tracking-tight leading-tight">
             Elevate Your
@@ -1115,7 +1118,7 @@ const ServicesSection = () => {
           <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-light">
             Unlock premium features and personalized services designed to accelerate your journey to success
           </p>
-        </div>
+        </div> */}
 
         {/* Light Theme Filters */}
         <div className="flex flex-wrap justify-center gap-4 mb-16">

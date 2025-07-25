@@ -23,20 +23,20 @@ export default function Home() {
     fetchData();
   }, [])
   return (
-    <main>
-       <div className="flex min-h-screen w-full">
+    <main className='w-full'>
+       <div className="flex min-h-screen w-full sm:flex-col md:flex-row">
        
-          <button
+          {/* <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="fixed left-4 top-4 z-50 rounded bg-slate-800 p-2 text-white md:hidden"
           >
             ☰ Menu
-          </button>
+          </button> */}
 
           
           {isMobileMenuOpen && (
             <div
-              className="fixed inset-0 z-40 bg-black bg-opacity-50 md:hidden"
+              className="fixed inset-0 z-40 bg-gray-500/50 bg-opacity-50 md:hidden"
               onClick={() => setIsMobileMenuOpen(false)}
             />
           )}
@@ -113,7 +113,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="w-full ">
+          <div className="w-full  ">
             <div className="h-screen overflow-y-auto">
               <div className="p-4 md:pt-4 pt-20"><HeroSection/>
       <ServicesSection/>

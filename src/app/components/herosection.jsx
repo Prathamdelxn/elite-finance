@@ -3,6 +3,8 @@
 import { Linkedin, Star, Users, Award, ArrowRight, CheckCircle, Shield, Clock, TrendingUp, Sparkles, Zap, Trophy, ExternalLink, ChevronLeft, ChevronRight, Phone, Mail, MapPin, Banknote } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import RazorpayPayment from './RazorpayPayment';
+import UserProfileCard from './UserProfileCard';
 
 export default function HeroSection() {
   // Static advertisement images
@@ -34,6 +36,21 @@ export default function HeroSection() {
   const [currentAdIndex, setCurrentAdIndex] = useState(0);
 const [Id, setID] = useState('687f59b6d9c23041f0d75eb0');
 const [topData,settopData]=useState();
+  const [showContact, setShowContact] = useState(false);
+  const [adminData, setAdminData] = useState({
+    name: 'Admin User',
+    title: 'Administrator',
+    imageUrl: '',
+    description: 'Experienced administrator focused on system security and operational efficiency.',
+  });
+
+  useEffect(() => {
+    // Fetch admin data for mobile user card
+    fetch('/api/admin')
+      .then(res => res.json())
+      .then(data => setAdminData(data || adminData))
+      .catch(() => {});
+  }, []);
   const fetchData = async () => {
     
     try {
@@ -96,6 +113,10 @@ const [topData,settopData]=useState();
 
   return (
     <section className="relative w-full bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 overflow-hidden">
+      {/* User Profile Card for mobile */}
+      <div className="block md:hidden">
+        <UserProfileCard adminData={adminData} />
+      </div>
       {/* Enhanced animated background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Dynamic gradient orbs - Proper responsive sizes */}
@@ -109,19 +130,20 @@ const [topData,settopData]=useState();
       </div>
 
       {/* Main Content Container */}
-      <div className="relative w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12 z-10">
+     <div className="relative w-full max-w-6xl mx-auto lg:ml-12 py-6 sm:py-8 lg:py-12 z-10">
+
         
         {/* Main Layout - Stack on mobile, row on larger screens */}
-        <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 mb-8">
+        <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 mb-8 ">
           
           {/* Advertisement Section - Full width on mobile, 2/3 on larger screens */}
           <div className="flex-1  lg:w-2/3">
-            <div className="bg-white/95 backdrop-blur-xl border border-gray-200/60 rounded-xl lg:rounded-2xl shadow-xl overflow-hidden group hover:shadow-blue-500/25 transition-all duration-700">
+            <div className="bg-white/95 backdrop-blur-xl border border-gray-200/60 rounded-xl lg:rounded-2xl shadow-xl overflow-hidden group hover:shadow-blue-500/25 transition-all duration-700 ">
               
               {/* Main Advertisement Carousel - Proper responsive heights */}
-              <div className="relative h-48 sm:h-64 md:h-80 lg:h-96 overflow-hidden">
+              <div className="relative h-64 sm:h-80 md:h-96 lg:h-[32rem] overflow-hidden  ">
                 <div 
-                  className="flex transition-transform duration-1000 ease-in-out h-full"
+                  className="flex transition-transform duration-1000 ease-in-out h-full "
                   style={{ transform: `translateX(-${currentAdIndex * 100}%)` }}
                 >
                   {adImages.map((image, index) => (
@@ -207,32 +229,49 @@ const [topData,settopData]=useState();
             </button>
 
             {/* Contact Information Card */}
-            <div className="bg-white/95 backdrop-blur-xl border border-gray-200/60 rounded-xl shadow-xl p-6 hover:shadow-2xl transition-all duration-500 flex-1">
-              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 flex items-center">
-                <Banknote className="w-5 h-5 mr-3 text-blue-600" />
+            <div className="bg-white/95 backdrop-blur-xl  border border-gray-200/60 rounded-xl shadow-xl p-6 hover:shadow-2xl transition-all duration-500 flex-1">
+              <h3 className=" text-lg sm:text-xl font-bold text-gray-900 mb-4  flex items-center">
+                <Banknote className="w-10 h-10 mr-5 text-blue-600" />
                 Fast Loan 
               </h3>
               <div className="space-y-4">
                 <div className="flex items-center text-gray-700">
                   <Phone className="w-4 h-4 mr-3 text-green-600 flex-shrink-0" />
-                  <span className="font-semibold text-sm sm:text-base">+91 8669XXXXXX</span>
+                  {showContact ? (
+                    <a href="tel:8669XXXXXX" className="font-semibold text-sm sm:text-base text-blue-600 underline hover:text-blue-800 transition-colors duration-200">
+                      +91 8669XXXXXX
+                    </a>
+                  ) : (
+                    <span className="font-semibold text-base md:text-lg">Hidden until payment</span>
+                  )}
                 </div>
                 <div className="flex items-center text-gray-700">
-                  <Mail className="w-4 h-4 mr-3 text-blue-600 flex-shrink-0" />
-                  <span className="font-semibold text-sm break-all">khondgaurav055@elitepune.com</span>
+                  <Mail className=" w-4 h-4 mr-3 text-blue-600 flex-shrink-0" />
+                  <span className="font-semibold text-base md:text-lg">khondgaurav055@elitepune.com</span>
                 </div>
                 <div className="flex items-center text-gray-700">
                   <MapPin className="w-4 h-4 mr-3 text-red-600 flex-shrink-0" />
-                  <span className="font-semibold text-sm sm:text-base">Pune, Maharashtra</span>
+                  <span className="font-semibold text-base md:text-lg">Pune, Maharashtra</span>
                 </div>
               </div>
-              
-              <a href="tel:8669012275" className="block mt-6">
-                <button className="w-full bg-gradient-to-r from-green-600 to-blue-600 text-white py-3 px-6 rounded-xl font-semibold hover:from-green-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 text-sm sm:text-base">
-                  <Phone className="w-4 h-4" />
-                  Enquiry For Fast Loan
-                </button>
-              </a>
+              <div className="block mt-6">
+                {showContact ? (
+                  <button className="w-full bg-gradient-to-r from-green-600 to-blue-600 text-white py-3 px-6 rounded-xl font-semibold hover:from-green-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 text-sm sm:text-base" disabled>
+                    <Phone className="w-4 h-4" />
+                    +91 8669XXXXXX
+                  </button>
+                ) : (
+                  <RazorpayPayment
+                    amount={5000} // 50 INR in paise
+                    currency="INR"
+                    receipt="enquiry_fast_loan"
+                    name="Elite Finance"
+                    description="Fast Loan Enquiry Fee"
+                    onSuccess={() => setShowContact(true)}
+                    onFailure={() => {}}
+                  />
+                )}
+              </div>
             </div>
 
             {/* LinkedIn Connection Card */}
@@ -261,6 +300,7 @@ const [topData,settopData]=useState();
                   <div className="flex items-center gap-1">
                     <Users className="w-4 h-4" />
                     <span className="font-semibold">1K+</span>
+
                   </div>
                   <div className="flex items-center gap-1">
                     <Star className="w-4 h-4 text-yellow-500 fill-current" />
@@ -273,7 +313,7 @@ const [topData,settopData]=useState();
         </div>
 
         {/* Banking Partners Section - Bottom (Full Width) */}
-        <div className="bg-white/95 backdrop-blur-xl border border-gray-200/60 rounded-xl lg:rounded-2xl shadow-xl overflow-hidden">
+        {/* <div className="bg-white/95 backdrop-blur-xl border border-gray-200/60 rounded-xl lg:rounded-2xl shadow-xl overflow-hidden">
   <div className="bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 py-6 sm:py-8">
     <div className="text-center mb-6">
       <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2">Our Banking Partners</h3>
@@ -281,7 +321,7 @@ const [topData,settopData]=useState();
     </div>
 
     <div className="relative overflow-hidden">
-      {/* Mobile & Tablet: Grid */}
+      
       <div className="grid grid-cols-3 sm:grid-cols-4 md:hidden gap-4">
         {bankIcons.slice(0, 12).map((bank, index) => (
           <div
@@ -302,7 +342,7 @@ const [topData,settopData]=useState();
         ))}
       </div>
 
-      {/* Desktop: Marquee */}
+     
       <div className="hidden md:block overflow-hidden">
         <div
           className="flex"
@@ -331,7 +371,7 @@ const [topData,settopData]=useState();
       </div>
     </div>
   </div>
-</div>
+</div> */}
 
       </div>
     </section>

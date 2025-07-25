@@ -3,6 +3,22 @@
 import { useState, useEffect } from 'react';
 import { Star, User, Calendar, Filter, X, Plus, MessageCircle, TrendingUp, Award } from 'lucide-react';
 
+const bankIcons = [
+  { name: 'HDFC', logo: '/bank/HDFC.png' },
+  { name: 'ICICI', logo: '/bank/icici-bank-vector-logo.png' },
+  { name: 'Axis', logo: '/bank/Axis_Bank_Logo.svg.png' },
+  { name: 'Kotak', logo: '/bank/images.png' },
+  { name: 'YES Bank', logo: '/bank/yes.png' },
+  { name: 'PNB', logo: '/bank/pnb.png' },
+  { name: 'IndusInd', logo: '/bank/ind-card-1.jpg' },
+  { name: 'Federal', logo: '/bank/fed.png' },
+  { name: 'Fibe', logo: '/bank/Fibe_Logo.jpg' },
+  { name: 'Finnable', logo: '/bank/finnable.png' },
+  { name: 'Bajaj Finserv', logo: '/bank/Bajaj_Finserv_Logo.svg.png' },
+  { name: 'IDFC First', logo: '/bank/idfc-first-bank8846.jpg' },
+  { name: 'Bandhan', logo: '/bank/bandhan-bank3983.jpg' },
+];
+
 const FeedbackSection = () => {
   const [feedbacks, setFeedbacks] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -99,13 +115,13 @@ const FeedbackSection = () => {
     return feedback.category === filter;
   });
 
-  const getCategoryStats = () => {
-    const categories = ['friendly', 'helpful', 'insightful'];
-    return categories.map(cat => ({
-      name: cat,
-      count: feedbacks.filter(f => f.category === cat).length
-    }));
-  };
+  // const getCategoryStats = () => {
+  //   const categories = ['friendly', 'helpful', 'insightful'];
+  //   return categories.map(cat => ({
+  //     name: cat,
+  //     count: feedbacks.filter(f => f.category === cat).length
+  //   }));
+  // };
 
   if (loading) {
     return (
@@ -121,7 +137,7 @@ const FeedbackSection = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header Section */}
-      <div className="relative overflow-hidden bg-gradient-to-r from-green-50 via-emerald-50 to-green-50">
+      {/* <div className="relative overflow-hidden bg-gradient-to-r from-green-50 via-emerald-50 to-green-50">
         <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 to-teal-500/10"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-24">
           <div className="text-center">
@@ -137,13 +153,13 @@ const FeedbackSection = () => {
             </p>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 -mt-10 md:-mt-20">
         {/* Stats Overview */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-12 md:mb-16">
           {/* Rating Summary Card */}
-          <div className="bg-white rounded-2xl md:rounded-3xl p-4 sm:p-6 md:p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300 group hover:border-emerald-500/50 col-span-2 md:col-span-1">
+          {/* <div className="bg-white rounded-2xl md:rounded-3xl p-4 sm:p-6 md:p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300 group hover:border-emerald-500/50 col-span-2 md:col-span-1">
             <div className="flex flex-col items-center">
               <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-xl md:rounded-2xl flex items-center justify-center mb-2 md:mb-4 group-hover:scale-110 transition-transform">
                 <Award className="w-6 md:w-8 h-6 md:h-8 text-white" />
@@ -158,10 +174,10 @@ const FeedbackSection = () => {
                 {feedbacks.length} {feedbacks.length === 1 ? 'Review' : 'Reviews'}
               </p>
             </div>
-          </div>
+          </div> */}
 
           {/* Category Stats */}
-          {getCategoryStats().map(({ name, count }, index) => (
+          {/* {getCategoryStats().map(({ name, count }, index) => (
             <div 
               key={name}
               className="bg-white rounded-2xl md:rounded-3xl p-4 sm:p-6 md:p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300 cursor-pointer group hover:border-emerald-500/50"
@@ -183,7 +199,7 @@ const FeedbackSection = () => {
                 </span>
               </div>
             </div>
-          ))}
+          ))} */}
         </div>
 
         {/* Add Feedback CTA */}
@@ -210,7 +226,7 @@ const FeedbackSection = () => {
             >
               All ({feedbacks.length})
             </button>
-            {getCategoryStats().map(({ name, count }) => (
+            {/* {getCategoryStats().map(({ name, count }) => (
               <button
                 key={name}
                 onClick={() => setFilter(name)}
@@ -222,7 +238,7 @@ const FeedbackSection = () => {
               >
                 {name.charAt(0).toUpperCase() + name.slice(1)} ({count})
               </button>
-            ))}
+            ))} */}
           </div>
         </div>
 
@@ -354,7 +370,7 @@ const FeedbackSection = () => {
                 </div>
               </div>
 
-              <div>
+              {/* <div>
                 <label className="block text-sm md:text-base font-semibold text-emerald-600 mb-1 md:mb-2">
                   Category
                 </label>
@@ -368,7 +384,7 @@ const FeedbackSection = () => {
                   <option value="helpful">Helpful</option>
                   <option value="insightful">Insightful</option>
                 </select>
-              </div>
+              </div> */}
 
               <div>
                 <label className="block text-sm md:text-base font-semibold text-emerald-600 mb-1 md:mb-2">
@@ -459,7 +475,67 @@ const FeedbackSection = () => {
             </div>
           </div>
         </div>
+        
       )}
+      {/* Our Banking Partners Section */}
+      <div className="bg-white/95 backdrop-blur-xl border w-full max-w-7xl mx-auto border-gray-200/60 rounded-xl lg:rounded-2xl shadow-xl overflow-hidden mt-8">
+        <div className="bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 py-6 sm:py-8">
+          <div className="text-center mb-6">
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2">Our Banking Partners</h3>
+            <p className="text-sm sm:text-base text-gray-600">Trusted by leading financial institutions</p>
+          </div>
+          <div className="relative overflow-hidden">
+            {/* Mobile & Tablet: Grid */}
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:hidden gap-4">
+              {bankIcons.slice(0, 12).map((bank, index) => (
+                <div
+                  key={`grid-${index}`}
+                  className="p-3 bg-white/80 backdrop-blur-sm rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 group"
+                >
+                  <div className="w-12 h-12 flex items-center justify-center mx-auto">
+                    <img
+                      src={bank.logo}
+                      alt={bank.name}
+                      className="w-full h-full object-contain rounded-md group-hover:scale-110 transition-transform duration-300"
+                    />
+                  </div>
+                  <div className="text-xs text-center mt-2 font-semibold text-gray-700 truncate">
+                    {bank.name}
+                  </div>
+                </div>
+              ))}
+            </div>
+            {/* Desktop: Marquee */}
+            <div className="hidden md:block overflow-hidden">
+              <div
+                className="flex"
+                style={{
+                  animation: 'marquee 30s linear infinite',
+                }}
+              >
+                {bankIcons.concat(bankIcons).map((bank, index) => (
+                  <div
+                    key={`marquee-${index}`}
+                    className="flex-shrink-0 mx-4 p-3 bg-white/80 backdrop-blur-sm rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 group min-w-[80px] max-w-[100px]"
+                  >
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center mx-auto">
+                      <img
+                        src={bank.logo}
+                        alt={bank.name}
+                        className="w-full h-full object-contain rounded-md group-hover:scale-110 transition-transform duration-300"
+                      />
+                    </div>
+                    <div className="text-xs text-center mt-2 font-semibold text-gray-700 truncate">
+                      {bank.name}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
     </div>
   );
 };
