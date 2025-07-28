@@ -349,7 +349,7 @@ const AboutUs = () => {
       icon: <Linkedin className="w-6 h-6" />,
       color: "from-blue-500 to-blue-600",
       hoverColor: "hover:text-blue-500",
-      href: "https://www.facebook.com/gaurav.khond.2025?mibextid=ZbWKwL"
+      href: "https://www.linkedin.com/in/gaurav-khond-2b2396377/"
     },
     {
       icon: <Facebook className="w-6 h-6" />,

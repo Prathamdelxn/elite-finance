@@ -242,7 +242,7 @@ const [topData,settopData]=useState();
                       +91 8669XXXXXX
                     </a>
                   ) : (
-                    <span className="font-semibold text-base md:text-lg">Hidden until payment</span>
+                    <span className="font-semibold text-base md:text-lg">8669XXXXXX</span>
                   )}
                 </div>
                 <div className="flex items-center text-gray-700">
@@ -287,7 +287,7 @@ const [topData,settopData]=useState();
                 </div>
                 
                 <a 
-                  href="https://www.facebook.com/gaurav.khond.2025?mibextid=ZbWKwL"
+                  href="https://www.linkedin.com/in/gaurav-khond-2b2396377/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-xl font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-300 text-sm sm:text-base"

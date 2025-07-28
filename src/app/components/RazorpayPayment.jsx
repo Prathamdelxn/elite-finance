@@ -91,7 +91,7 @@ const RazorpayPayment = ({ amount, currency = 'INR', receipt = 'receipt#1', name
         cursor: 'pointer'
       }}
     >
-      Pay with Razorpay
+     For Fast Enquiry
     </button>
   </div>
   
