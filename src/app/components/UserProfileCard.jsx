@@ -8,7 +8,7 @@ export default function UserProfileCard({ adminData }) {
         <div className="relative inline-block">
           <div className="w-32 h-32 sm:w-40 sm:h-40 mx-auto rounded-full overflow-hidden bg-white shadow-lg border-4 border-white">
             <Image
-              src={adminData?.imageUrl || '/api/placeholder/160/160'}
+              src={adminData?.imageUrl && adminData.imageUrl.trim() !== '' ? adminData.imageUrl : '/uploads/default-admin.jpg'}
               alt={adminData?.name || 'Admin'}
               width={160}
               height={160}
@@ -22,8 +22,8 @@ export default function UserProfileCard({ adminData }) {
       <div className="flex justify-center items-center space-x-3 sm:space-x-4 mb-6 sm:mb-8">
         {/* Left Rating */}
         <div className="bg-white rounded-lg px-3 py-2 sm:px-4 sm:py-3 shadow-md text-center min-w-[50px] sm:min-w-[60px]">
-          <div className="text-xl sm:text-2xl font-bold text-gray-800">8</div>
-          <div className="text-xs text-gray-600">Bookings</div>
+          <div className="text-xl sm:text-2xl font-bold text-gray-800">200</div>
+          <div className="text-xs text-gray-600">Customers</div>
         </div>
         {/* Center Achievement */}
         <div className="bg-red-500 rounded-lg px-3 py-2 sm:px-4 sm:py-3 shadow-md text-center min-w-[70px] sm:min-w-[80px] relative">
@@ -39,8 +39,9 @@ export default function UserProfileCard({ adminData }) {
         </div>
         {/* Right Rating */}
         <div className="bg-white rounded-lg px-3 py-2 sm:px-4 sm:py-3 shadow-md text-center min-w-[50px] sm:min-w-[60px]">
-          <div className="text-xl sm:text-2xl font-bold text-gray-800">8</div>
-          <div className="text-xs text-gray-600">Bookings</div>
+          <div className="text-xl sm:text-2xl font-bold text-gray-800">320</div>
+          <div className="text-xs text-gray-600">consultation
+          </div>
         </div>
       </div>
       {/* Name and Title */}

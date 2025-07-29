@@ -16,7 +16,7 @@ const DEFAULT_ADMIN = {
 
 export default function AdminSidebar() {
   const pathname = usePathname();
-  const [adminData, setAdminData] = useState(DEFAULT_ADMIN);
+  const [adminData, setAdminData] = useState(null); // Start as null
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [isMobileOpen, setIsMobileOpen] = useState(false);
@@ -38,10 +38,12 @@ export default function AdminSidebar() {
       }
       
       console.log('Sidebar: Fetched admin data:', data);
-      setAdminData(data || DEFAULT_ADMIN);
+      setAdminData(data);
+      setError('');
     } catch (err) {
       console.error('Error fetching admin data:', err);
-      setError(err.message);
+      setAdminData(DEFAULT_ADMIN); // fallback
+      setError('Failed to load admin data. Showing default.');
     } finally {
       setLoading(false);
     }
@@ -95,8 +97,13 @@ export default function AdminSidebar() {
     );
   }
 
+  // Show error if present
+  // Show adminData (either fetched or fallback)
   return (
     <div className="w-full h-screen bg-[#F1F8E9] flex flex-col overflow-hidden">
+      {error && (
+        <div className="bg-red-100 text-red-700 text-center py-2 text-sm">{error}</div>
+      )}
       {/* Admin Login Button for mobile menu */}
       <div className="p-4 border-b border-gray-200 flex justify-end md:justify-center">
         <button
@@ -107,6 +114,7 @@ export default function AdminSidebar() {
         </button>
       </div>
       <div className="flex-1 flex items-center justify-center p-4 sm:p-6">
+        <UserProfileCard adminData={adminData} />
         {/* Overlay for mobile */}
         {isMobileOpen && (
           <div

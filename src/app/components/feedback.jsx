@@ -9,7 +9,7 @@ const bankIcons = [
   { name: 'Axis', logo: '/bank/Axis_Bank_Logo.svg.png' },
   { name: 'Kotak', logo: '/bank/images.png' },
   { name: 'YES Bank', logo: '/bank/yes.png' },
-  { name: 'PNB', logo: '/bank/pnb.png' },
+  // { name: 'PNB', logo: '/bank/pnb.png' },
   { name: 'IndusInd', logo: '/bank/ind-card-1.jpg' },
   { name: 'Federal', logo: '/bank/fed.png' },
   { name: 'Fibe', logo: '/bank/Fibe_Logo.jpg' },

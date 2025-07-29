@@ -53,7 +53,7 @@ export default function Home() {
                   <div className="relative inline-block">
                     <div className="w-32 h-32 mx-auto rounded-full overflow-hidden bg-white shadow-lg border-4 border-white">
                       <img
-                        src={adminData.imageUrl || "https://i.pinimg.com/736x/4e/00/9a/4e009ad7cf2c339c46ef5d1644798755.jpg"}
+                        src={adminData.imageUrl || ""}
                         width={160}
                         height={160}
                         alt="Profile"

@@ -11,7 +11,12 @@ export async function GET() {
     if (!admin) {
       return NextResponse.json({ error: 'Admin profile not found' }, { status: 404 });
     }
-    return NextResponse.json(admin);
+    // Convert to plain object and ensure imageUrl is set
+    const adminObj = admin.toObject ? admin.toObject() : { ...admin };
+    if (!adminObj.imageUrl) {
+      adminObj.imageUrl = '/uploads/default-admin.jpg'; // fallback image
+    }
+    return NextResponse.json(adminObj);
   } catch (error) {
     return NextResponse.json({ error: 'Failed to fetch admin profile' }, { status: 500 });
   }

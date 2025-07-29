@@ -209,9 +209,11 @@ const [topData,settopData]=useState();
                       <p className="text-emerald-100 text-sm font-medium">Get approved in minutes, not days</p>
                     </div>
                   </div>
-                  <div className="hidden sm:block">
-                    <a href={topData?.sitelink} className="bg-white/20 cursor-pointer backdrop-blur-sm px-4 py-2 rounded-full">
-                      <span className="text-sm font-bold">Click Here</span>
+                  <div className="block">
+                    <a href={topData?.sitelink} 
+                      className="block w-full text-center sm:inline-block sm:w-auto bg-white/20 cursor-pointer backdrop-blur-sm px-4 py-2 rounded-full mt-4 sm:mt-0 text-sm sm:text-base font-bold transition-all duration-300 hover:bg-white/30"
+                    >
+                      <span>Click Here</span>
                     </a>
                   </div>
                 </div>
@@ -242,7 +244,7 @@ const [topData,settopData]=useState();
                       +91 8669XXXXXX
                     </a>
                   ) : (
-                    <span className="font-semibold text-base md:text-lg">8669XXXXXX</span>
+                    <span className="font-semibold text-base md:text-lg">+91 8669XXXXXX</span>
                   )}
                 </div>
                 <div className="flex items-center text-gray-700">
