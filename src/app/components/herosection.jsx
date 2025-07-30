@@ -240,8 +240,11 @@ const [topData,settopData]=useState();
                 <div className="flex items-center text-gray-700">
                   <Phone className="w-4 h-4 mr-3 text-green-600 flex-shrink-0" />
                   {showContact ? (
-                    <a href="tel:8669XXXXXX" className="font-semibold text-sm sm:text-base text-blue-600 underline hover:text-blue-800 transition-colors duration-200">
-                      +91 8669XXXXXX
+                    <a 
+                      href="tel:+918669012275" 
+                      className="font-semibold text-sm sm:text-base text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
+                    >
+                      +91 86690 12275
                     </a>
                   ) : (
                     <span className="font-semibold text-base md:text-lg">+91 8669XXXXXX</span>
@@ -260,7 +263,7 @@ const [topData,settopData]=useState();
                 {showContact ? (
                   <button className="w-full bg-gradient-to-r from-green-600 to-blue-600 text-white py-3 px-6 rounded-xl font-semibold hover:from-green-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 text-sm sm:text-base" disabled>
                     <Phone className="w-4 h-4" />
-                    +91 8669XXXXXX
+                    +91 86690 12275
                   </button>
                 ) : (
                   <RazorpayPayment

@@ -56,15 +56,16 @@ const ServicesSection = () => {
     : services.filter((s) => s.category === activeFilter);
 
   const handleConnectClick = (service) => {
-    setSelectedService(service);
-    setFormData(prev => ({
-      ...prev,
-      serviceName: service.title,
-      serviceCategory: service.category
-    }));
-    setShowForm(true);
-    setSubmitSuccess(false);
-    setFormErrors({});
+    // setSelectedService(service);
+    // setFormData(prev => ({
+    //   ...prev,
+    //   serviceName: service.title,
+    //   serviceCategory: service.category
+    // }));
+    // setShowForm(true);
+    // setSubmitSuccess(false);
+    // setFormErrors({});
+    window.open('https://forms.gle/kXosiFdufon6unQa6', '_blank');
   };
 
   const handleInputChange = (e) => {
@@ -326,6 +327,7 @@ const ServicesSection = () => {
       </div>
 
       {/* Contact Form Modal - Light Theme */}
+      {/*
       {showForm && (
         <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm z-50 flex items-center justify-center p-2 sm:p-4 overflow-y-auto">
           <div className="bg-white rounded-lg md:rounded-2xl border border-slate-200/50 w-full max-w-xs sm:max-w-md md:max-w-2xl mx-2 relative overflow-hidden shadow-xl flex flex-col max-h-[95vh]">
@@ -611,7 +613,7 @@ const ServicesSection = () => {
           </div>
         </div>
       )}
-
+      */}
       <style jsx>{`
         @keyframes fadeInUp {
           from {

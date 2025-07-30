@@ -68,9 +68,9 @@ export default function Home() {
                 <div className="flex justify-center items-center space-x-3 mb-4">
                   <div className="bg-white rounded-lg px-3 py-2 shadow-md text-center min-w-[50px]">
                     <div className="text-xl font-bold text-gray-800">
-                      8
+                      320
                     </div>
-                    <div className="text-xs text-gray-600">Bookings</div>
+                    <div className="text-xs text-gray-600">consultation</div>
                   </div>
 
                   <div className="bg-red-500 rounded-lg px-3 py-2 shadow-md text-center min-w-[70px] relative">
@@ -87,9 +87,9 @@ export default function Home() {
 
                   <div className="bg-white rounded-lg px-3 py-2 shadow-md text-center min-w-[50px]">
                     <div className="text-xl font-bold text-gray-800">
-                      8
+                      200
                     </div>
-                    <div className="text-xs text-gray-600">Bookings</div>
+                    <div className="text-xs text-gray-600">Customers</div>
                   </div>
                 </div>
 
