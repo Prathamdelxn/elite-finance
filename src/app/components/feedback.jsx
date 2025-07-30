@@ -6,11 +6,11 @@ import { Star, User, Calendar, Filter, X, Plus, MessageCircle, TrendingUp, Award
 const bankIcons = [
   { name: 'HDFC', logo: '/bank/HDFC.png' },
   { name: 'ICICI', logo: '/bank/icici-bank-vector-logo.png' },
-  { name: 'Axis', logo: '/bank/Axis_Bank_Logo.svg.png' },
+  { name: 'Axis', logo: '/bank/Axis_Bank_logo.png' },
   { name: 'Kotak', logo: '/bank/images.png' },
   { name: 'YES Bank', logo: '/bank/yes.png' },
   // { name: 'PNB', logo: '/bank/pnb.png' },
-  { name: 'IndusInd', logo: '/bank/ind-card-1.jpg' },
+  { name: 'IndusInd', logo: '/bank/indusBank.jpg' },
   { name: 'Federal', logo: '/bank/fed.png' },
   { name: 'Fibe', logo: '/bank/Fibe_Logo.jpg' },
   { name: 'Finnable', logo: '/bank/finnable.png' },
