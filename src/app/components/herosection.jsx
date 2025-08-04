@@ -34,8 +34,9 @@ export default function HeroSection() {
 
   const [adImages, setAdImages] = useState(staticAdImages);
   const [currentAdIndex, setCurrentAdIndex] = useState(0);
-const [Id, setID] = useState('687f59b6d9c23041f0d75eb0');
-const [topData,settopData]=useState();
+
+  const [topCompanies, setTopCompanies] = useState([]);
+  const [isLoadingCompanies, setIsLoadingCompanies] = useState(true);
   const [showContact, setShowContact] = useState(false);
   const [adminData, setAdminData] = useState({
     name: 'Admin User',
@@ -49,25 +50,37 @@ const [topData,settopData]=useState();
     fetch('/api/admin')
       .then(res => res.json())
       .then(data => setAdminData(data || adminData))
-      .catch(() => {});
+      .catch(() => { });
   }, []);
   const fetchData = async () => {
-    
     try {
-      const res = await fetch(`/api/top/fetch/${Id}`);
+      setIsLoadingCompanies(true);
+      const res = await fetch('/api/top/fetch');
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
       const data = await res.json();
-      console.log(data);
-      
-      settopData(data.data)
+      console.log('Fetched companies:', data);
+
+      if (data.success) {
+        setTopCompanies(data.data || []);
+      } else {
+        console.error('API returned error:', data.message);
+        setTopCompanies([]);
+      }
     } catch (error) {
-      console.error('Error fetching data:', error);
+      console.error('Error fetching companies:', error);
+      setTopCompanies([]);
     } finally {
-     
+      setIsLoadingCompanies(false);
     }
   };
 
   useEffect(() => {
     fetchData();
+    // Refresh data every 30 seconds to get new companies
+    const interval = setInterval(fetchData, 30000);
+    return () => clearInterval(interval);
   }, []);
   useEffect(() => {
     // Fetch the latest hero ads from the API
@@ -123,37 +136,37 @@ const [topData,settopData]=useState();
         <div className="absolute -top-10 -right-10 w-32 h-32 sm:w-48 sm:h-48 lg:w-64 lg:h-64 bg-gradient-to-br from-blue-300/30 to-purple-400/30 rounded-full blur-3xl animate-pulse" />
         <div className="absolute top-1/3 -left-10 w-40 h-40 sm:w-56 sm:h-56 lg:w-72 lg:h-72 bg-gradient-to-br from-purple-300/30 to-pink-400/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
         <div className="absolute -bottom-10 right-1/4 w-36 h-36 sm:w-52 sm:h-52 lg:w-68 lg:h-68 bg-gradient-to-br from-emerald-300/30 to-cyan-400/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '4s' }} />
-        
+
         {/* Floating geometric elements - Responsive positioning */}
         <div className="hidden sm:block absolute top-1/4 right-1/4 w-12 h-12 lg:w-16 lg:h-16 border-2 border-blue-300/40 rotate-45 animate-spin" style={{ animationDuration: '25s' }} />
         <div className="hidden sm:block absolute bottom-1/3 left-1/5 w-8 h-8 lg:w-12 lg:h-12 border-2 border-purple-300/40 rotate-12 animate-bounce" style={{ animationDuration: '3s' }} />
       </div>
 
       {/* Main Content Container */}
-     <div className="relative w-full max-w-6xl mx-auto lg:ml-12 py-6 sm:py-8 lg:py-12 z-10">
+      <div className="relative w-full max-w-6xl mx-auto lg:ml-12 py-6 sm:py-8 lg:py-12 z-10">
 
-        
+
         {/* Main Layout - Stack on mobile, row on larger screens */}
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 mb-8 ">
-          
+
           {/* Advertisement Section - Full width on mobile, 2/3 on larger screens */}
           <div className="flex-1  lg:w-2/3">
             <div className="bg-white/95 backdrop-blur-xl border border-gray-200/60 rounded-xl lg:rounded-2xl shadow-xl overflow-hidden group hover:shadow-blue-500/25 transition-all duration-700 ">
-              
+
               {/* Main Advertisement Carousel - Proper responsive heights */}
               <div className="relative h-64 sm:h-80 md:h-96 lg:h-[32rem] overflow-hidden  ">
-                <div 
+                <div
                   className="flex transition-transform duration-1000 ease-in-out h-full "
                   style={{ transform: `translateX(-${currentAdIndex * 100}%)` }}
                 >
                   {adImages.map((image, index) => (
                     <div key={image.id} className="w-full flex-shrink-0 relative group/slide">
-                      <img 
-                        src={image.src} 
+                      <img
+                        src={image.src}
                         alt={image.alt}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover/slide:scale-105"
                       />
-                      
+
                       {/* Enhanced overlay - Responsive text sizes */}
                       <div className="absolute inset-0  flex flex-col justify-end p-4 sm:p-6 lg:p-8">
                         <div className="text-white space-y-3 sm:space-y-4">
@@ -165,14 +178,14 @@ const [topData,settopData]=useState();
                 </div>
 
                 {/* Navigation buttons - Proper sizing */}
-                <button 
+                <button
                   onClick={prevAd}
                   className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 p-2 sm:p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
                 >
                   <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
                 </button>
-                
-                <button 
+
+                <button
                   onClick={nextAd}
                   className="absolute right-3 sm:right-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 p-2 sm:p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
                 >
@@ -185,17 +198,109 @@ const [topData,settopData]=useState();
                     <button
                       key={index}
                       onClick={() => setCurrentAdIndex(index)}
-                      className={`h-2 sm:h-3 rounded-full transition-all duration-500 ${
-                        index === currentAdIndex 
-                          ? 'bg-white w-6 sm:w-8 shadow-lg' 
+                      className={`h-2 sm:h-3 rounded-full transition-all duration-500 ${index === currentAdIndex
+                          ? 'bg-white w-6 sm:w-8 shadow-lg'
                           : 'bg-white/50 w-2 sm:w-3 hover:bg-white/75'
-                      }`}
+                        }`}
                     />
                   ))}
                 </div>
               </div>
             </div>
-             <div className="relative bg-gradient-to-r  from-blue-600 via-teal-600 to-violet-600 p-6 mt-16 rounded-xl shadow-xl text-white">
+
+            <div className="relative  p-6 mt-16 rounded-xl shadow-xl text-white">
+              {/* <div className="flex items-center h-28 justify-between">
+                  <div className="flex items-center gap-4">
+                    <div className="bg-white/20 backdrop-blur-sm p-3 rounded-full">
+                      <Zap className="w-8 h-8 text-white animate-pulse" />
+                    </div>
+                    <div>
+                      <h2 className="text-2xl sm:text-3xl font-bold flex items-center gap-2">
+                       {topCompanies[0]?.title || "Instant Loan"}
+                        <Sparkles className="w-6 h-6 text-yellow-300 animate-spin" style={{ animationDuration: '3s' }} />
+                      </h2>
+                      <p className="text-emerald-100 text-sm font-medium">Get approved in minutes, not days</p>
+                    </div>
+                  </div>
+                  <div className="block">
+                    <a href={topCompanies[0]?.sitelink} 
+                      className="block w-full text-center sm:inline-block sm:w-auto bg-white/20 cursor-pointer backdrop-blur-sm px-4 py-2 rounded-full mt-4 sm:mt-0 text-sm sm:text-base font-bold transition-all duration-300 hover:bg-white/30"
+                    >
+                      <span>Click Here</span>
+                    </a>
+                  </div>
+                </div> */}
+              {isLoadingCompanies ? (
+                <div className="space-y-4 mb-8">
+                  {[1, 2, 3].map((_, index) => (
+                    <div
+                      key={index}
+                      className="h-40 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg animate-pulse"
+                    >
+                      <div className="h-full bg-gray-300 rounded-xl"></div>
+                    </div>
+                  ))}
+                </div>
+              ) : topCompanies && topCompanies.length > 0 ? (
+                <div className="space-y-6 mb-8">
+                  {topCompanies.map((company, index) => (
+                    <div
+                      key={company._id || index}
+                      className="relative bg-gradient-to-r  from-blue-600 via-teal-600 to-violet-600 h-40 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden group"
+                     
+                    >
+                      {/* Overlay for better text readability */}
+                      <div className="absolute inset-0 bg-gradient-to-r  from-blue-600 via-teal-600 to-violet-600 group-hover:bg-black/60 transition-all duration-300"></div>
+
+                      {/* Content */}
+                      <div className="relative h-full flex items-center justify-between p-8">
+                        <div className="flex items-center gap-6">
+                          <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center border-2 border-white/30">
+                            {company.image ? (
+                              <img
+                                src={company.image}
+                                alt={company.title}
+                                className="w-16 h-16 object-contain rounded-full"
+                              />
+                            ) : (
+                              <span className="text-white font-bold text-2xl">
+                                {company.title?.charAt(0) || 'C'}
+                              </span>
+                            )}
+                          </div>
+                          <div>
+                            <h4 className="text-2xl font-bold text-white mb-2">
+                              {company.title}
+                            </h4>
+                            <p className="text-white/90 text-lg">Featured Client</p>
+                          </div>
+                        </div>
+
+                        {company.sitelink && (
+                          <a
+                            href={company.sitelink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-white/25 backdrop-blur-sm text-white px-6 py-3 rounded-full hover:bg-white/35 transition-all duration-300 flex items-center gap-3 group-hover:scale-105 font-semibold"
+                          >
+                            <span>Visit Website</span>
+                            <ExternalLink className="w-5 h-5" />
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="bg-white/95 backdrop-blur-xl border border-gray-200/60 rounded-xl shadow-xl overflow-hidden mb-8 p-8 text-center">
+                  <Building2 className="w-16 h-16 mx-auto text-gray-400 mb-4" />
+                  <h3 className="text-xl font-semibold text-gray-700 mb-2">No Companies Found</h3>
+                  <p className="text-gray-500">Add some companies from the admin panel to display them here!</p>
+                </div>
+              )}
+            </div>
+            {/* 
+                <div className="relative bg-gradient-to-r  from-blue-600 via-teal-600 to-violet-600 p-6 mt-16 rounded-xl shadow-xl text-white">
                 <div className="flex items-center h-28 justify-between">
                   <div className="flex items-center gap-4">
                     <div className="bg-white/20 backdrop-blur-sm p-3 rounded-full">
@@ -217,8 +322,34 @@ const [topData,settopData]=useState();
                     </a>
                   </div>
                 </div>
-              </div>
+              </div> */}
+            {/* 
+                <div className="relative bg-gradient-to-r  from-blue-600 via-teal-600 to-violet-600 p-6 mt-16 rounded-xl shadow-xl text-white">
+                <div className="flex items-center h-28 justify-between">
+                  <div className="flex items-center gap-4">
+                    <div className="bg-white/20 backdrop-blur-sm p-3 rounded-full">
+                      <Zap className="w-8 h-8 text-white animate-pulse" />
+                    </div>
+                    <div>
+                      <h2 className="text-2xl sm:text-3xl font-bold flex items-center gap-2">
+                       {topData?.title || "Instant Loan"}
+                        <Sparkles className="w-6 h-6 text-yellow-300 animate-spin" style={{ animationDuration: '3s' }} />
+                      </h2>
+                      <p className="text-emerald-100 text-sm font-medium">Get approved in minutes, not days</p>
+                    </div>
+                  </div>
+                  <div className="block">
+                    <a href={topData?.sitelink} 
+                      className="block w-full text-center sm:inline-block sm:w-auto bg-white/20 cursor-pointer backdrop-blur-sm px-4 py-2 rounded-full mt-4 sm:mt-0 text-sm sm:text-base font-bold transition-all duration-300 hover:bg-white/30"
+                    >
+                      <span>Click Here</span>
+                    </a>
+                  </div>
+                </div>
+              </div> */}
           </div>
+
+
 
           {/* Contact and LinkedIn Section - Full width on mobile, 1/3 on larger screens */}
           <div className="lg:w-1/3 flex flex-col gap-4 sm:gap-6">
@@ -234,14 +365,14 @@ const [topData,settopData]=useState();
             <div className="bg-white/95 backdrop-blur-xl  border border-gray-200/60 rounded-xl shadow-xl p-6 hover:shadow-2xl transition-all duration-500 flex-1">
               <h3 className=" text-lg sm:text-xl font-bold text-gray-900 mb-4  flex items-center">
                 <Banknote className="w-10 h-10 mr-5 text-blue-600" />
-                Fast Loan 
+                Fast Loan
               </h3>
               <div className="space-y-4">
                 <div className="flex items-center text-gray-700">
                   <Phone className="w-4 h-4 mr-3 text-green-600 flex-shrink-0" />
                   {showContact ? (
-                    <a 
-                      href="tel:+918669012275" 
+                    <a
+                      href="tel:+918669012275"
                       className="font-semibold text-sm sm:text-base text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
                     >
                       +91 86690 12275
@@ -273,7 +404,7 @@ const [topData,settopData]=useState();
                     name="Elite Finance"
                     description="Fast Loan Enquiry Fee"
                     onSuccess={() => setShowContact(true)}
-                    onFailure={() => {}}
+                    onFailure={() => { }}
                   />
                 )}
               </div>
@@ -285,13 +416,13 @@ const [topData,settopData]=useState();
                 <div className="bg-gradient-to-r from-blue-600 to-blue-700 p-3 rounded-full w-fit mx-auto">
                   <Linkedin className="w-6 h-6 text-white" />
                 </div>
-                
+
                 <div>
                   <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">Follow Us</h3>
                   <p className="text-gray-600 text-sm">Get financial tips & updates</p>
                 </div>
-                
-                <a 
+
+                <a
                   href="https://www.linkedin.com/in/gaurav-khond-2b2396377/"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -300,7 +431,7 @@ const [topData,settopData]=useState();
                   <span>Connect</span>
                   <ExternalLink className="w-4 h-4" />
                 </a>
-                
+
                 <div className="flex items-center justify-center gap-6 pt-4 text-gray-500 text-sm">
                   <div className="flex items-center gap-1">
                     <Users className="w-4 h-4" />
@@ -317,6 +448,7 @@ const [topData,settopData]=useState();
           </div>
         </div>
 
+   
         {/* Banking Partners Section - Bottom (Full Width) */}
         {/* <div className="bg-white/95 backdrop-blur-xl border border-gray-200/60 rounded-xl lg:rounded-2xl shadow-xl overflow-hidden">
   <div className="bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 py-6 sm:py-8">

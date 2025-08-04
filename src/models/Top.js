@@ -10,6 +10,10 @@ const topSchema = new mongoose.Schema({
     type: String,
    
   },
+  image: {
+    type: String,
+    default: ''
+  },
 
 }, {
   timestamps: true
